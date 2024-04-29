@@ -10,10 +10,9 @@
 <template>
   <Banner />
   <Content />
+
 </template>
 
 <style scoped>
-  .titulo {
-    color: red;
-  }
+
 </style>

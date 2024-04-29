@@ -1,21 +1,28 @@
 <script lang="ts">
-  
+import Makings from './Makings.vue'
   export default {
     data() {
         return {
-          ingredientes:['Alho', 'Manteiga', 'Orégano']
-        }
-    }
+          ingredientes: ['Alho', 'Manteiga', 'Orégano']
+        };
+      },
+      components: { Makings }
   }
 </script>
 <template>
   <main class="conteudo-principal">
     <section>
       <span class="subtitulo-lg sua-lista-texto">Sua lista</span>
-      <ul class="ingredientes-sua-lista">
-        <li v-for="ingrediente in ingredientes" class="ingrediente">{{ ingrediente }}</li>
+      <ul v-if="ingredientes.length" class="ingredientes-sua-lista">
+        <li v-for="ingrediente in ingredientes" :key="ingrediente" class="ingrediente">{{ ingrediente }}</li>
       </ul>
+      <p v-else class="paragrafo lista-vazia">
+        <img src="../assets/imagens/icones/lista-vazia.svg" alt="icon empty">
+        Sua lista está vazia, adicione ingredientes para começar a cozinhar!
+      </p>
     </section>
+    <Makings />
+
   </main>
 </template>
 

@@ -71,7 +71,6 @@ body {
 .paragrafo {
   font-size: 1.125em;
   line-height: 150%;
-  /* 1.6875em */
 }
 
 @media only screen and (max-width: 767px) {
