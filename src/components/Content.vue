@@ -1,33 +1,25 @@
 <script lang="ts">
 import Makings from './Makings.vue'
+import List from './List.vue'
   export default {
     data() {
         return {
           ingredientes: ['Alho', 'Manteiga', 'Orégano']
         };
       },
-      components: { Makings }
+      components: { Makings, List}
   }
 </script>
 <template>
   <main class="conteudo-principal">
-    <section>
-      <span class="subtitulo-lg sua-lista-texto">Sua lista</span>
-      <ul v-if="ingredientes.length" class="ingredientes-sua-lista">
-        <li v-for="ingrediente in ingredientes" :key="ingrediente" class="ingrediente">{{ ingrediente }}</li>
-      </ul>
-      <p v-else class="paragrafo lista-vazia">
-        <img src="../assets/imagens/icones/lista-vazia.svg" alt="icon empty">
-        Sua lista está vazia, adicione ingredientes para começar a cozinhar!
-      </p>
-    </section>
+    <List :ingredientes="ingredientes" />
     <Makings />
 
   </main>
 </template>
 
 <style scoped>
-   .conteudo-principal {
+.conteudo-principal {
   padding: 6.5rem 7.5rem;
   border-radius: 3.75rem 3.75rem 0rem 0rem;
   background: var(--creme, #FFFAF3);
@@ -51,18 +43,6 @@ import Makings from './Makings.vue'
   justify-content: center;
   gap: 1rem 1.5rem;
   flex-wrap: wrap;
-}
-
-.ingrediente {
-  display: inline-block;
-  border-radius: 0.5rem;
-  min-width: 4.25rem;
-  padding: 0.5rem;
-  text-align: center;
-    transition: 0.2s;
-    color: var(--creme, #FFFAF3);
-  background: var(--coral, #F0633C);
-  font-weight: 700;
 }
 
 .lista-vazia {
@@ -89,5 +69,4 @@ import Makings from './Makings.vue'
     gap: 4rem;
   }
 }
-
-   </style>
+</style>
